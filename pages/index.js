@@ -1,7 +1,17 @@
-import React from 'react';
+import Head from 'next/head';
 
-const index = () => {
-  return <div>index</div>;
+const Home = () => {
+  return (
+    <div className="container">
+      <Head>
+        <title>Home Page</title>
+      </Head>
+
+      <main className="">
+        <h1>Welcome </h1>
+      </main>
+    </div>
+  );
 };
 
-export default index;
+export default Home;
