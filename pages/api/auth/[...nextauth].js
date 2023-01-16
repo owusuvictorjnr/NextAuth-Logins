@@ -1,21 +1,26 @@
-// import NextAuth from 'next-auth';
+import NextAuth from 'next-auth';
 
-// import Providers from 'next-auth/providers';
+import Providers from 'next-auth/providers';
 
-// export default NextAuth({
-//   // Config one or more authentication providers
+export default NextAuth({
+  // Config one or more authentication providers
 
-//   providers: [
-//     Providers.GitHub({
-//       clientId: process.env.GITHUB_ID,
+  providers: [
+    Providers.GitHub({
+      clientId: process.env.GITHUB_ID,
 
-//       clientSecret: process.env.GITHUB_SECRET,
-//     }),
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
 
-//     // Add more providers here
-//   ],
+    Providers.Google({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
 
-//   // Database
+    // Add more providers here
+  ],
 
-//   database: process.env.DATABASE_URL,
-// });
+  // Database
+
+  database: process.env.DATABASE_URL,
+});
