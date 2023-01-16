@@ -5,9 +5,14 @@ import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import styles from '../styles/Form.module.css';
 import { HiFingerPrint, HiAtSymbol } from 'react-icons/hi';
+import { signIn, signOut } from 'next-auth/react';
 
 const Login = () => {
   const [show, setShow] = useState(false);
+
+  async function handleGoogleSignin() {
+    signIn('google', { callbackURL: 'http://localhost:3000' });
+  }
 
   return (
     <Layout>
@@ -62,7 +67,11 @@ const Login = () => {
           </div>
 
           <div className="input-button ">
-            <button type="button" className={styles.custome_button}>
+            <button
+              type="button"
+              onClick={handleGoogleSignin}
+              className={styles.custome_button}
+            >
               sign in with google{' '}
               <Image
                 src={'/loginImgs/google.svg'}
